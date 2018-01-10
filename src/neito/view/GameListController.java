@@ -66,6 +66,14 @@ public class GameListController {
             alert.showAndWait();
         }
     }
+    @FXML
+    private void handleAddGame()
+    {
+    	Game newGame = new Game();
+    	boolean okClicked = main.showGameAddDialog(newGame);
+    	if (okClicked)
+    		main.getGameList().add(newGame);
+    }
     
 	public void setMain(Main main)
 	{

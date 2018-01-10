@@ -8,9 +8,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import neito.model.Game;
+import neito.view.GameEditDialogController;
 import neito.view.GameListController;
 
 public class Main extends Application {
@@ -66,6 +68,36 @@ public class Main extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public boolean showGameAddDialog(Game game)
+	{
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("view/GameEditDialog.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
+			
+			//Create Stage
+			Stage diagStage = new Stage();
+			diagStage.setTitle("Add a new game");
+			 diagStage.initOwner(primary_S);
+	        Scene scene = new Scene(page);
+	        diagStage.setScene(scene);
+	        
+	        //Set Controller
+	        GameEditDialogController ctrl = loader.getController();
+	        ctrl.setDialogStage(diagStage);
+	        ctrl.setNewGame(game);
+	        
+	        diagStage.showAndWait();
+	        
+	        return ctrl.isOkClicked();
+		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 
 	public Stage getPrimary_S() {

@@ -8,11 +8,16 @@ public class Game {
 	private final StringProperty name;
 	private final StringProperty editor;
 	
+	
 	public Game(String name, String score, String editor)
 	{
 		this.name = new SimpleStringProperty(name);
 		this.score = new SimpleStringProperty(score);
 		this.editor = new SimpleStringProperty(editor);
+	}
+	public Game()
+	{
+		this(null, null, null);
 	}
 	
 	public String getScore() {				
