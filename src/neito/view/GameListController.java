@@ -1,6 +1,8 @@
 package neito.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -48,6 +50,23 @@ public class GameListController {
     		editorLabel.setText("");
     	}
     }
+    @FXML
+    private void handleDeleteGame()
+    {
+    	int selectedIndex = gameTable.getSelectionModel().getSelectedIndex();
+    	if(selectedIndex >= 0){gameTable.getItems().remove(selectedIndex);}
+    	else {
+            // Nothing selected.
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(main.getPrimary_S());
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Person Selected");
+            alert.setContentText("Please select a person in the table.");
+
+            alert.showAndWait();
+        }
+    }
+    
 	public void setMain(Main main)
 	{
 		this.main = main;
