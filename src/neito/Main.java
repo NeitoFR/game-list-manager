@@ -26,6 +26,9 @@ public class Main extends Application {
 	{
 		gameList.add(new Game("MK10", "15", "Default"));
 		gameList.add(new Game("Dofus", "16", "Ankama"));
+		gameList.add(new Game("Dishonored", "18", "Arkane"));
+		gameList.add(new Game("Starcraft", "12", "Blizzard"));
+		gameList.add(new Game("Battlerite", "17", "Ankama"));	
 	}
 	public ObservableList<Game> getGameList() {
         return gameList;
@@ -49,6 +52,7 @@ public class Main extends Application {
 			Scene scene = new Scene(rootLayout);
 			primary_S.setScene(scene);
 			primary_S.show();
+			//primary_S.setResizable(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -74,6 +74,27 @@ public class GameListController {
     	if (okClicked)
     		main.getGameList().add(newGame);
     }
+    @FXML
+    private void handleEditGame()
+    {
+    	Game selectedGame = gameTable.getSelectionModel().getSelectedItem();
+    	if(selectedGame != null)
+    	{
+    		boolean okClicked = main.showGameAddDialog(selectedGame);
+    		if(okClicked)
+    			showGameDetails(selectedGame);
+    	}
+    	else {
+            // Nothing selected.
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(main.getPrimary_S());
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Person Selected");
+            alert.setContentText("Please select a person in the table.");
+
+            alert.showAndWait();
+        }
+    }
     
 	public void setMain(Main main)
 	{

@@ -6,25 +6,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<SplitPane dividerPositions="0.357429718875502" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="500.0" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neito.view.GameListController">
+<SplitPane dividerPositions="0.357429718875502" minHeight="250.0" minWidth="500.0" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="neito.view.GameListController">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="248.0" minWidth="175.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
          <children>
-            <TableView fx:id="gameTable" prefHeight="248.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="gameTable" minHeight="248.0" minWidth="175.0" prefHeight="248.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
                 <TableColumn fx:id="nameColumn" prefWidth="86.0" text="Name" />
                 <TableColumn fx:id="scoreColumn" prefWidth="87.0" text="Score" />
               </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
             </TableView>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <SplitPane layoutX="155.0" layoutY="130.0" orientation="VERTICAL" prefHeight="398.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="305.0">
+                <AnchorPane minHeight="246.0" minWidth="305.0" prefHeight="246.0" prefWidth="305.0">
                      <children>
                         <GridPane layoutX="14.0" layoutY="14.0" prefHeight="106.0" prefWidth="258.0">
                           <columnConstraints>
@@ -45,9 +42,9 @@
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Editor" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
-                        <Button layoutX="14.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleAddGame" text="Add new" />
-                        <Button layoutX="106.0" layoutY="201.0" mnemonicParsing="false" text="Edit" />
-                        <Button layoutX="165.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleDeleteGame" text="Delete" />
+                        <Button layoutX="104.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleAddGame" text="Add new" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="131.0" />
+                        <Button layoutX="188.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleEditGame" text="Edit" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="80.0" />
+                        <Button layoutX="241.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleDeleteGame" text="Delete" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0" />
                      </children>
                   </AnchorPane>
               </items>
