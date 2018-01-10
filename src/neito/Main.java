@@ -22,7 +22,8 @@ public class Main extends Application {
 	
 	public Main()
 	{
-		gameList.add(new Game("MK10", 15));
+		gameList.add(new Game("MK10", "15", "Default"));
+		gameList.add(new Game("Dofus", "16", "Ankama"));
 	}
 	public ObservableList<Game> getGameList() {
         return gameList;

@@ -13,7 +13,7 @@ public class GameListController {
 	@FXML
 	private TableColumn<Game, String> nameColumn;
 	@FXML
-	private TableColumn<Game, Integer> scoreColumn;
+	private TableColumn<Game, String> scoreColumn;
 	@FXML
 	private Label nameLabel;
 	@FXML
@@ -27,9 +27,27 @@ public class GameListController {
     private void initialize() {
         // Initialize the person table with the two columns.
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().NameProperty());
-        scoreColumn.setCellValueFactory(cellData -> cellData.getValue().ScoreProperty().asObject());
+        scoreColumn.setCellValueFactory(cellData -> cellData.getValue().ScoreProperty());
+        showGameDetails(null);
+        gameTable.getSelectionModel().selectedItemProperty().addListener(
+        		(observable, oldValue, newValue) -> showGameDetails(newValue)) ;
     }
-    
+    private void showGameDetails(Game game)
+    {
+    	if(game != null)
+    	{
+    		nameLabel.setText(game.getName());
+    		scoreLabel.setText(game.getScore());;
+    		editorLabel.setText(game.getEditor());
+    		
+    	}
+    	else 
+    	{
+    		nameLabel.setText("");
+    		scoreLabel.setText("");
+    		editorLabel.setText("");
+    	}
+    }
 	public void setMain(Main main)
 	{
 		this.main = main;
