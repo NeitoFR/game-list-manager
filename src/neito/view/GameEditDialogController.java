@@ -22,6 +22,7 @@ public class GameEditDialogController {
 	@FXML
     private void initialize() {
     }
+	
 	public void setDialogStage(Stage dialogStage) {
         this.diagStage = dialogStage;
     }
@@ -49,7 +50,7 @@ public class GameEditDialogController {
 		if(isInputValid())
 		{	
 			game.setName(nameField.getText());
-			game.setScore(scoreField.getText());
+			game.setScore(Integer.parseInt(scoreField.getText()));
 			game.setEditor(editorField.getText());
 			
 			okClicked = true;
@@ -60,15 +61,20 @@ public class GameEditDialogController {
 	private boolean isInputValid()
 	{
 		String errorMessage = "";
-		String nF = nameField.getText(), sF = scoreField.getText(), eF = editorField.getText();
+		String nF = nameField.getText(), eF = editorField.getText();//text value of Score
+		int sF = Integer.parseInt(scoreField.getText());//int value of Score
 		if(nF == null || nF.length() == 0 || nF.length() > 25) 
-		{
-			errorMessage += "Name empty or too long"; 
-		}
+			errorMessage += "Name empty or too long\n"; 
+		if(sF < 0 || sF > 20)
+			errorMessage += "Sore too high or null\n";
+		if((eF == null || eF.length() == 0 || eF.length() > 25) )
+			errorMessage += "Editor name empty or too long\n";
+		
 		if(errorMessage.length() == 0)
 		{
 			return true;
 		}
+		
 		else
 		{
 			Alert alert = new Alert(AlertType.ERROR);

@@ -24,11 +24,11 @@ public class Main extends Application {
 	
 	public Main()
 	{
-		gameList.add(new Game("MK10", "15", "Default"));
-		gameList.add(new Game("Dofus", "16", "Ankama"));
-		gameList.add(new Game("Dishonored", "18", "Arkane"));
-		gameList.add(new Game("Starcraft", "12", "Blizzard"));
-		gameList.add(new Game("Battlerite", "17", "Ankama"));	
+		gameList.add(new Game("MK10", 15, "Default"));
+		gameList.add(new Game("Dofus", 16, "Ankama"));
+		gameList.add(new Game("Dishonored", 18, "Arkane"));
+		gameList.add(new Game("Starcraft", 12, "Blizzard"));
+		gameList.add(new Game("Battlerite", 17, "Ankama"));	
 	}
 	public ObservableList<Game> getGameList() {
         return gameList;

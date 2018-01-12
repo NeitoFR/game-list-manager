@@ -1,32 +1,34 @@
 package neito.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Game {
-	private final StringProperty score;
+	private final IntegerProperty score;
 	private final StringProperty name;
 	private final StringProperty editor;
 	
 	
-	public Game(String name, String score, String editor)
+	public Game(String name, int score, String editor)
 	{
 		this.name = new SimpleStringProperty(name);
-		this.score = new SimpleStringProperty(score);
+		this.score = new SimpleIntegerProperty(score);
 		this.editor = new SimpleStringProperty(editor);
 	}
 	public Game()
 	{
-		this(null, null, null);
+		this(null, 0, null);
 	}
 	
 	public String getScore() {				
-	  return score.get();
+	  return score.getValue().toString();
 	}
-	public void setScore(String value) {		
-	  this.score.set(value);
+	public void setScore(int string) {		
+	  this.score.set(string);
 	}
-	public StringProperty ScoreProperty() {
+	public IntegerProperty ScoreProperty() {
         return score;
     }	
 	public StringProperty NameProperty() {

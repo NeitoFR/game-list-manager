@@ -15,7 +15,7 @@ public class GameListController {
 	@FXML
 	private TableColumn<Game, String> nameColumn;
 	@FXML
-	private TableColumn<Game, String> scoreColumn;
+	private TableColumn<Game, Number> scoreColumn;
 	@FXML
 	private Label nameLabel;
 	@FXML
