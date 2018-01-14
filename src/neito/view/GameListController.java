@@ -6,6 +6,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import neito.Main;
 import neito.model.Game;
 
@@ -22,6 +24,8 @@ public class GameListController {
 	private Label scoreLabel;
 	@FXML
 	private Label editorLabel;
+	@FXML
+	private ImageView imageView;
 	
 	private Main main;
 	
@@ -32,22 +36,33 @@ public class GameListController {
         scoreColumn.setCellValueFactory(cellData -> cellData.getValue().ScoreProperty());
         showGameDetails(null);
         gameTable.getSelectionModel().selectedItemProperty().addListener(
-        		(observable, oldValue, newValue) -> showGameDetails(newValue)) ;
+        		(observable, oldValue, newValue) -> showGameDetails(newValue));
     }
     private void showGameDetails(Game game)
     {
     	if(game != null)
     	{
     		nameLabel.setText(game.getName());
-    		scoreLabel.setText(game.getScore());;
+    		scoreLabel.setText(game.getScore());
     		editorLabel.setText(game.getEditor());
-    		
+    		if(game.getCoverDirectory() != null || game.getCoverDirectory().length() != 0)
+			{
+				imageView.setImage(new Image(game.getCoverDirectory(), 130, 150, false, true));
+				imageView.setVisible(true);
+			}
+    		else
+			{
+				game.setCoverDirectory("\\img\\no-cover.jpg");
+				imageView.setVisible(true);
+			}
+		
     	}
     	else 
     	{
     		nameLabel.setText("");
     		scoreLabel.setText("");
     		editorLabel.setText("");
+    		imageView.setVisible(false);
     	}
     }
     @FXML

@@ -9,13 +9,15 @@ public class Game {
 	private final IntegerProperty score;
 	private final StringProperty name;
 	private final StringProperty editor;
+	private String coverDirectory;
 	
-	
+
 	public Game(String name, int score, String editor)
 	{
 		this.name = new SimpleStringProperty(name);
 		this.score = new SimpleIntegerProperty(score);
 		this.editor = new SimpleStringProperty(editor);
+		this.coverDirectory = "\\img\\nocover.jpg";
 	}
 	public Game()
 	{
@@ -48,5 +50,11 @@ public class Game {
 	}
 	public StringProperty EditorProperty() {
         return editor;
+	}
+	public String getCoverDirectory() {
+		return coverDirectory;
+	}
+	public void setCoverDirectory(String coverDirectory) {
+		this.coverDirectory = coverDirectory;
 	}
 }
